@@ -1,11 +1,7 @@
 PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-CC = gcc
-CXX = $(CC)
-	
-OBJS = calculation.o display.o input.o memory.o lifeV1.o
-LIBS = ncursesw
 
-#CFLAGS += -l $(LIBS)
+OBJS = calculation.o display.o input.o memory.o App.o LifeCPP.o 
+LIBS = ncursesw
 
 ifeq ($(BUILD_MODE),debug)
 	CFLAGS += -g
@@ -14,15 +10,15 @@ else ifeq ($(BUILD_MODE),run)
 else ifeq ($(BUILD_MODE),linuxtools)
 	CFLAGS += -g -pg -fprofile-arcs -ftest-coverage
 	LDFLAGS += -pg -fprofile-arcs -ftest-coverage
-	EXTRA_CLEAN += life.gcda life.gcno $(PROJECT_ROOT)gmon.out
-	EXTRA_CMDS = rm -rf life.gcda
+	EXTRA_CLEAN += LifeCPP.gcda LifeCPP.gcno $(PROJECT_ROOT)gmon.out
+	EXTRA_CMDS = rm -rf LifeCPP.gcda
 else
     $(error Build mode $(BUILD_MODE) not supported by this Makefile)
 endif
 
-all:	lifeV1
+all:	LifeCPP
 
-lifeV1:	$(OBJS)
+LifeCPP:	$(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^ -l $(LIBS)
 	$(EXTRA_CMDS)
 
@@ -31,8 +27,10 @@ lifeV1:	$(OBJS)
 
 %.o:	$(PROJECT_ROOT)%.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
+	
+%.o:	$(PROJECT_ROOT)src/%.cpp
+	$(CXX) -c $(CFLAGS) $(CXXFLAGS) $(CPPFLAGS) -o $@ $<
+
 
 clean:
-#	rm -fr life $(OBJS) $(EXTRA_CLEAN)
-	del  life.exe $(OBJS) $(EXTRA_CLEAN)
-	
+	rm -fr LifeCPP $(OBJS) $(EXTRA_CLEAN)
