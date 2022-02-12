@@ -7,6 +7,8 @@ public:
 	virtual ~FieldModel();
 	inline char get(int x, int y);
 	inline void set(int x, int y, char cell);
+	inline int getWidth();
+	inline int getHeigh();
 private:
 	char **field;
 	int width, height;

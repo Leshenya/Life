@@ -48,3 +48,10 @@ inline char FieldModel::get(int x, int y) {
 	return ' ';
 }
 
+inline int FieldModel::getWidth(){
+	return width;
+}
+inline int FieldModel::getHeigh(){
+	return height;
+}
+
