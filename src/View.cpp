@@ -16,6 +16,7 @@
 #include <locale.h>
 #include <cstring>
 #include <exception>
+#include "FieldModel.h"
 
 View::View() {
 	// TODO Auto-generated constructor stub
@@ -29,7 +30,7 @@ View::~View() {
 
 void View::render(FieldModel *model) {
 	clear();
-	for (int k = 0; k < model->getHeigh(); k++) {
+	for (int k = 0; k < model->getHeight(); k++) {
 		for (int i = 0; i < model->getWidth(); i++) {
 			if (model->get(i, k) == ' ') {
 				printw(" ");
@@ -52,6 +53,7 @@ void View::initWin(){
 }
 void View::detectWinSize(){
     getmaxyx (stdscr, maxHeight, maxWidth);
+    maxWidth--;
 }
 int View::getMaxX(){
     return maxWidth;

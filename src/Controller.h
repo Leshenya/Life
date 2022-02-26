@@ -12,6 +12,10 @@ public:
     Controller();
     virtual ~Controller();
     void init();
+    void readFile(char *fileName);
+    int calcNb(int x, int y);
+    int setPixel(int x, int y, int nb);
+    int nextStep();
 
 private:
     View *view;
@@ -21,6 +25,7 @@ private:
 
 
 #endif //LIFECPP_CONTROLLER_H
-// счеталочка
+// считалочка
 // читалочка (из файла в модель с помощью FieldModel::set)
 // для загрузки в модель использовать set, while не нужен (брать из test)
+// добавить возможность ввода названия файла, из которого нужно читать

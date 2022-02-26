@@ -30,28 +30,28 @@ FieldModel::~FieldModel() {
 	}
 	free(field);
 }
-
-inline void FieldModel::set(int x, int y, char cell) {
-	if (x >= 0 && x < width && y >= 0 && y < height) {
-		field[y][x] = cell;
-	} else {
-		throw new std::exception();
-	}
-}
-
-inline char FieldModel::get(int x, int y) {
-	if (x >= 0 && x < width && y >= 0 && y < height) {
-		return field[y][x];
-	} else {
-		throw new std::exception();
-	}
-	return ' ';
-}
-
-inline int FieldModel::getWidth(){
-	return width;
-}
-inline int FieldModel::getHeigh(){
-	return height;
-}
+//
+//inline void FieldModel::set(int x, int y, char cell) {
+//	if (x >= 0 && x < width && y >= 0 && y < height) {
+//		field[y][x] = cell;
+//	} else {
+//		throw new std::exception();
+//	}
+//}
+//
+//inline char FieldModel::get(int x, int y) {
+//	if (x >= 0 && x < width && y >= 0 && y < height) {
+//		return field[y][x];
+//	} else {
+//		throw new std::exception();
+//	}
+//	return ' ';
+//}
+//
+//inline int FieldModel::getWidth(){
+//	return width;
+//}
+//inline int FieldModel::getHeight(){
+//	return height;
+//}
 

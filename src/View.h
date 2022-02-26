@@ -5,9 +5,9 @@
  *      Author: leshenya
  */
 
-#include "FieldModel.h"
 #ifndef SRC_VIEW_H_
 #define SRC_VIEW_H_
+#include "FieldModel.h"
 
 class View {
 public:

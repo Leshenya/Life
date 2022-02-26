@@ -1,6 +1,6 @@
 PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-OBJS = calculation.o display.o input.o memory.o App.o LifeCPP.o 
+OBJS = calculation.o display.o input.o memory.o FieldModel.o View.o Controller.o App.o LifeCPP.o
 LIBS = ncursesw
 
 ifeq ($(BUILD_MODE),debug)
