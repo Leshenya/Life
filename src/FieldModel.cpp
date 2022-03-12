@@ -1,6 +1,6 @@
 #include "FieldModel.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -30,28 +30,4 @@ FieldModel::~FieldModel() {
 	}
 	free(field);
 }
-//
-//inline void FieldModel::set(int x, int y, char cell) {
-//	if (x >= 0 && x < width && y >= 0 && y < height) {
-//		field[y][x] = cell;
-//	} else {
-//		throw new std::exception();
-//	}
-//}
-//
-//inline char FieldModel::get(int x, int y) {
-//	if (x >= 0 && x < width && y >= 0 && y < height) {
-//		return field[y][x];
-//	} else {
-//		throw new std::exception();
-//	}
-//	return ' ';
-//}
-//
-//inline int FieldModel::getWidth(){
-//	return width;
-//}
-//inline int FieldModel::getHeight(){
-//	return height;
-//}
 

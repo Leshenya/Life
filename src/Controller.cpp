@@ -1,14 +1,8 @@
-//
-// Created by leshenya on 12.02.2022.
-//
-
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <cstdlib>
+#include <stdlib.h>
+#include <etip.h>
 #include "Controller.h"
-#include "FieldModel.h"
-#include "View.h"
 
 Controller::Controller() {
     view = nullptr;
@@ -18,6 +12,7 @@ Controller::Controller() {
 
 Controller::~Controller() {
     if (view != nullptr) {
+        view->closeWin();
         delete view;
         delete cur;
         delete buf;
@@ -36,14 +31,13 @@ void Controller::readFile(char *fileName) {
     char cell;
     int x = view->getMaxX();
     int y = view->getMaxY();
-    //char *file = argv[0];
 
     printf("%s \n", fileName);
     std::ifstream inf(fileName);
 
     if (!inf) {
         std::cerr << "Uh oh, this file could not be opened for reading!" << std::endl;
-        exit(1);
+        std::exit(1);
     }
 
     inf >> x;
@@ -95,12 +89,6 @@ int Controller::setPixel(int x, int y, int nb) {
         default:
             buf->set(x, y, ' ');
     }
-//	if (c==buf[y][x]){
-//		return 0;
-//	}
-//	else{
-//		return 1;
-//	}
     return (c == buf->get(x, y)) ? 0 : 1;
 }
 

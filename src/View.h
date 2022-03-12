@@ -1,10 +1,3 @@
-/*
- * View.h
- *
- *  Created on: 11 февр. 2022 г.
- *      Author: leshenya
- */
-
 #ifndef SRC_VIEW_H_
 #define SRC_VIEW_H_
 #include "FieldModel.h"

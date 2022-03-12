@@ -1,31 +1,13 @@
-/*
- * View.cpp
- *
- *  Created on: 11 февр. 2022 г.
- *      Author: leshenya
- */
-
 #include "View.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include <curses.h>
 #include <locale.h>
-#include <cstring>
-#include <exception>
-#include "FieldModel.h"
 
 View::View() {
-	// TODO Auto-generated constructor stub
     maxWidth = 0;
     maxHeight = 0;
 }
 
 View::~View() {
-	// TODO Auto-generated destructor stub
 }
 
 void View::render(FieldModel *model) {
@@ -36,9 +18,7 @@ void View::render(FieldModel *model) {
 				printw(" ");
 
 			} else {
-				//printw("😛");//👻
 				printw("#");
-				//rand();
 			}
 		}
 		printw("\n");
